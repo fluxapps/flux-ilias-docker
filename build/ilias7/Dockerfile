@@ -10,12 +10,9 @@ ARG database_ilias_user=lms
 FROM fluxfw/flux-ilias-ilias-base:php$php_version AS ilias
 ARG ilias_version
 ARG time_zone
-ARG ilias_root_user_passwordfile
 ARG ilias_cron_user_login
-ARG ilias_cron_user_passwordfile
 ARG database_ilias
 ARG database_ilias_user
-ARG database_ilias_user_password_file
 RUN /flux-ilias-ilias-base/bin/install-ilias-core.sh $ilias_version
 
 
@@ -74,9 +71,7 @@ COPY --from=eclipse-temurin:8u332-b09-jre-alpine $JAVA_HOME $JAVA_HOME
 ENV PATH="${JAVA_HOME}/bin:${PATH}"
 
 ARG ilias_cron_user_login
-ARG ilias_cron_user_passwordfile
 ENV ILIAS_CRON_USER_LOGIN=$ilias_cron_user_login
-ENV ILIAS_CRON_USER_PASSWORD_FILE=$ilias_cron_user_passwordfile
 ENV ILIAS_COMMON_SERVER_TIMEZONE=$time_zone
 ENV TZ=$time_zone
 
