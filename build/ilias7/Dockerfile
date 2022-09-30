@@ -83,7 +83,7 @@ ENV ILIAS_COMMON_SERVER_TIMEZONE=$time_zone
 ENV TZ=$time_zone
 
 
-FROM mariadb:10.3.35-focal AS database
+FROM mariadb:10.7-focal AS database
 ARG database_ilias
 ARG database_ilias_user
 ENV MARIADB_DATABASE=$database_ilias
