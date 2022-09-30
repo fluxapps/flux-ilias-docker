@@ -7,11 +7,8 @@ CRON_BUILD=fluxms/flux-ilias-cron
 ILSERVER_BUILD=fluxms/flux-ilias-ilserver
 DATABASE_BUILD=fluxms/flux-ilias-database
 
-docker build --target ilias -t lxlms:latest .
-docker build --target nginx -t lxlms:latest .
-docker build --target cron -t lxlms:latest .
-docker build --target ilserver -t lxlms:latest .
-docker build --target database -t lxlms:latest .
-
-
-${COMPOSE_PROJECT_NAME}
+docker build --target ilias -t $ILIAS_BUILD:$MAJOR_VERSION .
+docker build --target nginx -t $NGINX_BUILD:$MAJOR_VERSION .
+docker build --target cron -t $CRON_BUILD:$MAJOR_VERSION .
+docker build --target ilserver -t $ILSERVER_BUILD:$MAJOR_VERSION .
+docker build --target database -t $DATABASE_BUILD:$MAJOR_VERSION .
